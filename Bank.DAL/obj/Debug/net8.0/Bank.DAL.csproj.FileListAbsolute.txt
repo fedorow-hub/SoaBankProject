@@ -1,0 +1,17 @@
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\Bank.DAL.csproj.AssemblyReference.cache
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\Bank.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\Bank.DAL.AssemblyInfoInputs.cache
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\Bank.DAL.AssemblyInfo.cs
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\Bank.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\bin\Debug\net8.0\Bank.DAL.deps.json
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\bin\Debug\net8.0\Bank.DAL.dll
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\bin\Debug\net8.0\Bank.DAL.pdb
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\bin\Debug\net8.0\Bank.Application.dll
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\bin\Debug\net8.0\Bank.Domain.dll
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\bin\Debug\net8.0\Bank.Application.pdb
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\bin\Debug\net8.0\Bank.Domain.pdb
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\Bank.DAL.csproj.CopyComplete
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\Bank.DAL.dll
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\refint\Bank.DAL.dll
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\Bank.DAL.pdb
+C:\Users\Сергей\source\repos\MyProjectsWithEFCore\SoaBankProject\Bank.DAL\obj\Debug\net8.0\ref\Bank.DAL.dll

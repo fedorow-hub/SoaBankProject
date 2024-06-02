@@ -1,0 +1,330 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\SoaBankProject\\SoaBankProject.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Application\\Bank.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Application\\Bank.Application.csproj",
+        "projectName": "Bank.Application",
+        "projectPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Application\\Bank.Application.csproj",
+        "packagesPath": "C:\\Users\\Сергей\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Сергей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Domain\\Bank.Domain.csproj": {
+                "projectPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Domain\\Bank.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.DAL\\Bank.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.DAL\\Bank.DAL.csproj",
+        "projectName": "Bank.DAL",
+        "projectPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.DAL\\Bank.DAL.csproj",
+        "packagesPath": "C:\\Users\\Сергей\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Сергей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Application\\Bank.Application.csproj": {
+                "projectPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Application\\Bank.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Domain\\Bank.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Domain\\Bank.Domain.csproj",
+        "projectName": "Bank.Domain",
+        "projectPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Domain\\Bank.Domain.csproj",
+        "packagesPath": "C:\\Users\\Сергей\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Сергей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\SoaBankProject\\SoaBankProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\SoaBankProject\\SoaBankProject.csproj",
+        "projectName": "SoaBankProject",
+        "projectPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\SoaBankProject\\SoaBankProject.csproj",
+        "packagesPath": "C:\\Users\\Сергей\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\SoaBankProject\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Сергей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Application\\Bank.Application.csproj": {
+                "projectPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.Application\\Bank.Application.csproj"
+              },
+              "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.DAL\\Bank.DAL.csproj": {
+                "projectPath": "C:\\Users\\Сергей\\source\\repos\\MyProjectsWithEFCore\\SoaBankProject\\Bank.DAL\\Bank.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
