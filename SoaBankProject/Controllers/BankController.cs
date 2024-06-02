@@ -8,7 +8,7 @@ namespace SoaBankProject.Controllers
 	{
 		[HttpPost]
 		[ProducesResponseType(StatusCodes.Status201Created)]
-		public async Task<ActionResult> Create([FromBody] CreateBankCommand createBank)
+		public async Task<ActionResult<SomeBank>> Create([FromBody] CreateBankCommand createBank)
 		{
 			SomeBank bank = await Mediator.Send(createBank);
 			return Ok(bank);
