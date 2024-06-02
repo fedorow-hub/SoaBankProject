@@ -203,7 +203,10 @@ namespace ClientBankApp.ViewModels
 
 		private async Task<Bank> GetExistBankOrCreateAsync()
 		{
-			using(HttpClient client = new HttpClient())
+
+			// документация по работе с клиентом https://learn.microsoft.com/ru-ru/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client
+			
+			using (HttpClient client = new HttpClient())
 			{
 				var responce = await client.GetAsync("https://localhost:7271/api/Account/GetAll/3FA85F64-5717-4562-B3FC-2C961F64AFA6");
 			}
