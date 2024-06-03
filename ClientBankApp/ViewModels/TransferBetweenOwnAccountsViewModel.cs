@@ -5,7 +5,6 @@ using ClientBankApp.Models.Client;
 using ClientBankApp.Models.Worker;
 using ClientBankApp.ViewModels.Base;
 using ClientBankApp.ViewModels.DialogViewModels;
-using ClientBankApp.ViewModels.Helpers;
 using ClientBankApp.Views.DialogWindows;
 using System.Collections.ObjectModel;
 using System.Windows;

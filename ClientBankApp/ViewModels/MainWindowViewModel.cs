@@ -5,7 +5,6 @@ using ClientBankApp.Models.Bank;
 using ClientBankApp.Models.Client;
 using ClientBankApp.Models.Worker;
 using ClientBankApp.ViewModels.Base;
-using ClientBankApp.ViewModels.Helpers;
 using ClientBankApp.Views;
 using ClientBankApp.Views.AccountOperationWindow;
 using System.Collections.ObjectModel;
@@ -195,7 +194,7 @@ namespace ClientBankApp.ViewModels
 
         private void UpdateClients()
         {
-            if(MyHttpClient.GetClients() != null)
+            if (MyHttpClient.GetClients() != null)
             {
                 Clients = MyHttpClient.GetClients().Clients;
             }
