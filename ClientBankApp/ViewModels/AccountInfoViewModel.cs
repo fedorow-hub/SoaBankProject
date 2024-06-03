@@ -13,8 +13,8 @@ namespace ClientBankApp.ViewModels
 		private readonly OpenAccountViewModel _openAccountViewModel;
 
 		#region Свойства зависимости
-		private TypeOfAccount[] _accountTypes = { TypeOfAccount.Plain, TypeOfAccount.Credit, TypeOfAccount.Deposit };
-		public TypeOfAccount[] AccountTypes
+		private string[] _accountTypes = { "Рассчетный", "Кредитный", "Депозитный" };
+		public string[] AccountTypes
 		{
 			get => _accountTypes;
 			set => Set(ref _accountTypes, value);

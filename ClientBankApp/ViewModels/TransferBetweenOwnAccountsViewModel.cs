@@ -1,4 +1,5 @@
-﻿using ClientBankApp.Infrastructure.Commands;
+﻿using ClientBankApp.Helpers;
+using ClientBankApp.Infrastructure.Commands;
 using ClientBankApp.Models.Account;
 using ClientBankApp.Models.Client;
 using ClientBankApp.Models.Worker;
@@ -67,7 +68,14 @@ namespace ClientBankApp.ViewModels
 
 		private void UpdateAccount()
 		{
-			Accounts = new ObservableCollection<Account>(ViewModelHelper.GetAccounts(_currentClient.Id).Result);
+            if (MyHttpClient.GetClients() != null)
+            {
+                Accounts = MyHttpClient.GetClientAccounsts(_currentClient.Id).Accounts;
+            }
+            else
+            {
+                Accounts = new ObservableCollection<Account>();
+            }
 		}
 
 		#region TransferCommand

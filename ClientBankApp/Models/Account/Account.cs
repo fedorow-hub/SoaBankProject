@@ -1,59 +1,34 @@
-﻿using ClientBankApp.Models.Root;
-
-namespace ClientBankApp.Models.Account
+﻿namespace ClientBankApp.Models.Account
 {
-	public abstract class Account: Entity
-	{
-		/// <summary>
-		/// идентификационный номер клиента, которому принадлежит счет
-		/// </summary>
-		public Guid ClientId { get; private set; }
+    public class Account
+    {
+        public Guid Id { get; set; }
+        /// <summary>
+        /// идентификационный номер клиента, которому принадлежит счет
+        /// </summary>
+        public Guid ClientId { get; set; }
 
-		/// <summary>
-		/// дата и время создания счета
-		/// </summary>
-		public DateTime TimeOfCreated { get; private set; }
+        /// <summary>
+        /// дата и время создания счета
+        /// </summary>
+        public DateTime TimeOfCreated { get; set; }
 
-		/// <summary>
-		/// сумма, лежащая на счете
-		/// </summary>
-		public decimal Amount { get; protected set; }
+        /// <summary>
+        /// сумма, лежащая на счете
+        /// </summary>
+        public decimal Amount { get; set; }
 
-		/// <summary>
-		/// дата, до которой действует счет
-		/// </summary>
-		public DateTime AccountTerm { get; private set; }
+        /// <summary>
+        /// дата, до которой действует счет
+        /// </summary>
+        public DateTime AccountTerm { get; set; }
 
-		/// <summary>
-		/// действующий или закрытый счет
-		/// </summary>
-		public bool IsExistance { get; private set; }
+        /// <summary>
+        /// действующий или закрытый счет
+        /// </summary>
+        public bool IsExistance { get; set; }
 
-		public TypeOfAccount Type { get; private set; } = null!;
+        public string Type { get; set; }
 
-		public Account()
-		{
-
-		}
-
-		public Account(Guid clientId, byte termOfMonth, decimal amount, DateTime timeOfCreated, TypeOfAccount type)
-		{
-			AccountTerm = timeOfCreated.AddMonths(termOfMonth);
-			ClientId = clientId;
-			TimeOfCreated = timeOfCreated;
-			Amount = amount;
-			IsExistance = true;
-			Type = type;
-		}
-
-		public Account(Guid id, Guid clientId, byte termOfMonth, decimal amount, DateTime timeOfCreated, TypeOfAccount type)
-		{
-			AccountTerm = timeOfCreated.AddMonths(termOfMonth);
-			ClientId = clientId;
-			TimeOfCreated = timeOfCreated;
-			Amount = amount;
-			IsExistance = true;
-			Type = type;
-		}
-	}
+    }
 }

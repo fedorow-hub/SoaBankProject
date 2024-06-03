@@ -1,4 +1,5 @@
-﻿using ClientBankApp.Infrastructure.Commands;
+﻿using ClientBankApp.Helpers;
+using ClientBankApp.Infrastructure.Commands;
 using ClientBankApp.Models.Account;
 using ClientBankApp.Models.Client;
 using ClientBankApp.ViewModels.Base;
@@ -47,7 +48,14 @@ namespace ClientBankApp.ViewModels.DialogViewModels
 
 		public TransferToOtherClientsDialogViewModel(Account accountFrom, Client client, TransferToOtherClientsAccountsViewModel viewModel)
 		{
-			_accountsSelectedClient = new ObservableCollection<Account>(ViewModelHelper.GetAccounts(client.Id).Result);
+            if (MyHttpClient.GetClients() != null)
+            {
+                _accountsSelectedClient = MyHttpClient.GetClientAccounsts(client.Id).Accounts;
+            }
+            else
+            {
+                _accountsSelectedClient = new ObservableCollection<Account>();
+            }
 			_transferToOtherClientsAccountsViewModel = viewModel;
 			AccountFrom = accountFrom;
 			SelectedClient = client;

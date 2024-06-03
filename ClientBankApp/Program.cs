@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using ClientBankApp.Helpers;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 namespace ClientBankApp
@@ -8,9 +9,10 @@ namespace ClientBankApp
 		[STAThread]
 		public static void Main()
 		{
-			var app = new App();
+            MyHttpClient.InitialiseHttpClient("https://localhost:7271/api/");
+            var app = new App();
 			app.InitializeComponent();
-			app.Run();
+			app.Run();			
 		}
 
 		public static IHostBuilder CreateHostBuilder(string[] args) =>

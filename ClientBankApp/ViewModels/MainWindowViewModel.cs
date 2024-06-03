@@ -195,12 +195,26 @@ namespace ClientBankApp.ViewModels
 
         private void UpdateClients()
         {
-            Clients = new ObservableCollection<Client>(ViewModelHelper.GetAllClients().Result);
+            if(MyHttpClient.GetClients() != null)
+            {
+                Clients = MyHttpClient.GetClients().Clients;
+            }
+            else
+            {
+                Clients = new ObservableCollection<Client>();
+            }
         }
 
         private void UpdateAccount()
         {
-            AccountsCurrentClient = new ObservableCollection<Account>(ViewModelHelper.GetAccounts(_selectedClient.Id).Result);
+            if (MyHttpClient.GetClients() != null)
+            {
+                AccountsCurrentClient = MyHttpClient.GetClientAccounsts(_selectedClient.Id).Accounts;
+            }
+            else
+            {
+                AccountsCurrentClient = new ObservableCollection<Account>();
+            }
         }
 
         private Bank GetExistBankOrCreate()

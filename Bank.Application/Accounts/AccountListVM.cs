@@ -1,9 +1,9 @@
-﻿using Bank.Domain.Account;
+﻿using Bank.Application.Accounts.Queries;
 
 namespace Bank.Application.Accounts
 {
-	public class AccountListVm
-	{
-		public List<Account> Accounts { get; set; } = null!;
-	}
+    public class AccountListVm
+    {
+        public List<AccountLookUpDTO> Accounts { get; set; } = null!;
+    }
 }

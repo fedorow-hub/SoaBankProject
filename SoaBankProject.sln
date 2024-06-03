@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bank.Application", "Bank.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bank.DAL", "Bank.DAL\Bank.DAL.csproj", "{F364A18D-3986-45CE-B711-CF90C3AB1E1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientBankApp", "ClientBankApp\ClientBankApp.csproj", "{2C092D20-0337-4ACA-8EC5-563847AFF2E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientBankApp", "ClientBankApp\ClientBankApp.csproj", "{2C092D20-0337-4ACA-8EC5-563847AFF2E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

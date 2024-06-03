@@ -1,7 +1,9 @@
-﻿using ClientBankApp.Models.Bank;
+﻿using ClientBankApp.Models.Account;
+using ClientBankApp.Models.Bank;
+using ClientBankApp.Models.Client;
+using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text.Json;
 
 namespace ClientBankApp.Helpers
 {
@@ -23,19 +25,48 @@ namespace ClientBankApp.Helpers
 
             if (response.IsSuccessStatusCode)
             {
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
-
                 var responceContent = response.Content.ReadAsStringAsync().Result;
 
-                return JsonSerializer.Deserialize<Bank>(responceContent, options);
+                return JsonConvert.DeserializeObject<Bank>(responceContent);
             }
             else
             {
                 return null;
             }
         }
+
+        public static ClientList GetClients()
+        {
+            HttpResponseMessage response = client.GetAsync("client/getall").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responceContent = response.Content.ReadAsStringAsync().Result;
+
+                return JsonConvert.DeserializeObject<ClientList>(responceContent);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static AccountList GetClientAccounsts(Guid id)
+        {
+            HttpResponseMessage response = client.GetAsync($"account/getall/{id}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var responceContent = response.Content.ReadAsStringAsync().Result;
+
+                return JsonConvert.DeserializeObject<AccountList>(responceContent);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }
