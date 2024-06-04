@@ -2,7 +2,7 @@
 
 namespace Bank.Application.Clients.Commands.UpdateClient
 {
-	public record UpdateClientCommand : IRequest
+	public record UpdateClientCommand : IRequest<int>
 	{
 		public Guid Id { get; init; }
 

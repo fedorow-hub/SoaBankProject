@@ -1,4 +1,5 @@
-﻿using ClientBankApp.Infrastructure.Commands;
+﻿using ClientBankApp.Helpers;
+using ClientBankApp.Infrastructure.Commands;
 using ClientBankApp.Models.Account;
 using ClientBankApp.ViewModels.Base;
 using System.Windows;
@@ -40,17 +41,14 @@ namespace ClientBankApp.ViewModels.DialogViewModels
 
 		private async void OnSaveCommandExecute(object p)
 		{
-			// логика отправки команды на сервер
+			var amountDelta = new AmountDelta
+			{
+				Id = _currentAccount.Id,
+				Amount = _amount,
+            };
+            string message = AcountAction.WithdrawalMoney(amountDelta);
 
-			//var command = new WithdrawMoneyFromAccountCommand
-			//{
-			//	Id = _currentAccount.Id,
-			//	Amount = _amount,
-			//};
-
-			//var message = await _mediator.Send(command);
-
-			//MessageBox.Show(message);
+			MessageBox.Show(message);
 
 			if (p is Window window)
 			{

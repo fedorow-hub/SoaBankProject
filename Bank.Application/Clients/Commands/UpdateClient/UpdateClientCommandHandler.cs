@@ -1,10 +1,11 @@
 ﻿using Bank.Application.Interfaces;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
 namespace Bank.Application.Clients.Commands.UpdateClient
 {
-	public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand>
+	public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand, int>
 	{
 		private readonly IApplicationDbContext _context;
 
@@ -13,7 +14,7 @@ namespace Bank.Application.Clients.Commands.UpdateClient
 			_context = context;
 		}
 
-		public async Task Handle(UpdateClientCommand request, CancellationToken cancellationToken)
+		public async Task<int> Handle(UpdateClientCommand request, CancellationToken cancellationToken)
 		{
 			var client = _context.Clients.FirstOrDefault(r => r.Id == request.Id);
 
@@ -26,11 +27,13 @@ namespace Bank.Application.Clients.Commands.UpdateClient
 			client?.ChangeTotalIncomePerMounth(request.TotalIncomePerMounth.ToString(CultureInfo.CurrentCulture));
 
 			client?.AddDomainEvent(new UpdateClientEvent
-			{
-				Id = request.Id
-			});
+            {
+                Id = request.Id
+            });
 
-			await _context.SaveChangesAsync(cancellationToken);
+            var result = _context.SaveChangesAsync(cancellationToken);
+
+            return await result;
 		}
 	}
 }

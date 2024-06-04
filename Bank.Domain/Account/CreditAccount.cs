@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Bank.Domain.Account
 {
@@ -25,11 +26,11 @@ namespace Bank.Domain.Account
 
 		}
 
-		public CreditAccount(Guid id, Guid clientId, byte termOfMonth, decimal amount, DateTime timeOfCreated)
+		public CreditAccount(Guid id, Guid clientId, DateTime termOfMonth, decimal amount, DateTime timeOfCreated)
 			: base(id, clientId, termOfMonth, amount, timeOfCreated, TypeOfAccount.Credit)
 		{
 			LoanInterest = SetLoanInterest();
-			MouthlyPayment = SetMonthlyPayment(termOfMonth);
+			MouthlyPayment = SetMonthlyPayment(Convert.ToByte(termOfMonth.Subtract(DateTime.Now).Days / (365.25 / 12)));
 		}
 
 		public CreditAccount(Guid id, Guid clientId, DateTime accountTerm, decimal amount, DateTime timeOfCreated, string monthlyPayment)
@@ -49,9 +50,10 @@ namespace Bank.Domain.Account
 		/// <param name="timeOfCreated"></param>
 		/// <returns></returns>
 		/// <exception cref="DomainExeption"></exception>
-		public static CreditAccount CreateCreditAccount(Guid id, Client.Client client, byte termOfMonth, decimal amount, DateTime timeOfCreated)
-		{
-			if (client.TotalIncomePerMounth.Income / 2 < amount / termOfMonth)
+		public static CreditAccount CreateCreditAccount(Guid id, Client.Client client, DateTime termOfMonth, decimal amount, DateTime timeOfCreated)
+        {
+			byte mounthCount = Convert.ToByte(termOfMonth.Subtract(DateTime.Now).Days / (365.25 / 12));
+            if (client.TotalIncomePerMounth.Income / 2 < amount / mounthCount)
 			{
 				throw new DomainExeption("Ежемесячные платежи по кредиту превышают половину месячного дохода");
 			}

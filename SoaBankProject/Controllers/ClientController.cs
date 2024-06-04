@@ -20,30 +20,30 @@ namespace SoaBankProject.Controllers
 
 		[HttpPost]
 		[ProducesResponseType(StatusCodes.Status201Created)]
-		public async Task<ActionResult> Create([FromBody] CreateClientCommand createClientCommand)
+		public async Task<ActionResult<int>> Create([FromBody] CreateClientCommand createClientCommand)
 		{
-			await Mediator.Send(createClientCommand);
-			return Ok();
+            int responce = await Mediator.Send(createClientCommand);
+            return Ok(responce);
 		}
 
 		[HttpPut]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
-		public async Task<ActionResult> Update([FromBody] UpdateClientCommand updateClientCommand)
+		public async Task<ActionResult<int>> Update([FromBody] UpdateClientCommand updateClientCommand)
 		{
-			await Mediator.Send(updateClientCommand);
-			return NoContent();
+            int responce = await Mediator.Send(updateClientCommand);
+            return Ok(responce);
 		}
 
 		[HttpDelete("{id}")]
-		[ProducesResponseType(StatusCodes.Status204NoContent)]
-		public async Task<ActionResult> Delete(Guid id)
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public async Task<ActionResult<int>> Delete(Guid id)
 		{
 			var command = new DeleteClientCommand
 			{
 				Id = id
 			};
-			await Mediator.Send(command);
-			return NoContent();
+			int responce = await Mediator.Send(command);
+			return Ok(responce);
 		}
 	}
 }

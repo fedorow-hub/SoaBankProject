@@ -1,4 +1,5 @@
-﻿using ClientBankApp.Infrastructure.Commands;
+﻿using ClientBankApp.Helpers;
+using ClientBankApp.Infrastructure.Commands;
 using ClientBankApp.Models.Account;
 using ClientBankApp.ViewModels.Base;
 using System.Windows;
@@ -41,11 +42,19 @@ namespace ClientBankApp.ViewModels.DialogViewModels
 
 		private async void OnSaveCommandExecute(object p)
 		{
-			//логика отправки команды на сервер
+            //логика отправки команды на сервер
 
-			//MessageBox.Show(message);
+            var delta = new AmountDelta
+            {
+                Id = _currentAccount.Id,
+                Amount = _amount
+            };
 
-			if (p is Window window)
+			string message = AcountAction.AddMoney(delta);
+
+            MessageBox.Show(message);
+
+            if (p is Window window)
 			{
 				window.Close();
 			}

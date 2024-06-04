@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bank.Application.Clients.Commands.DeleteClient
 {
-	public class DeleteClientCommandHandler : IRequestHandler<DeleteClientCommand>
+	public class DeleteClientCommandHandler : IRequestHandler<DeleteClientCommand, int>
 	{
 		private readonly IApplicationDbContext _context;
 
@@ -13,7 +13,7 @@ namespace Bank.Application.Clients.Commands.DeleteClient
 			_context = context;
 		}
 
-		public async Task Handle(DeleteClientCommand request, CancellationToken cancellationToken)
+		public async Task<int> Handle(DeleteClientCommand request, CancellationToken cancellationToken)
 		{
 
 			var client = await _context.Clients.FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
@@ -22,7 +22,9 @@ namespace Bank.Application.Clients.Commands.DeleteClient
 				_context.Clients.Remove(client);
 			}
 
-			await _context.SaveChangesAsync(cancellationToken);
+			var result = _context.SaveChangesAsync(cancellationToken);
+
+			return await result;
 		}
 	}
 }

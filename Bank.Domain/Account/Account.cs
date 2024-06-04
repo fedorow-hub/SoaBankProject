@@ -37,9 +37,9 @@ namespace Bank.Domain.Account
 
 		}
 
-		public Account(Guid clientId, byte termOfMonth, decimal amount, DateTime timeOfCreated, TypeOfAccount type)
+		public Account(Guid clientId, DateTime termOfMonth, decimal amount, DateTime timeOfCreated, TypeOfAccount type)
 		{
-			AccountTerm = timeOfCreated.AddMonths(termOfMonth);
+			AccountTerm = termOfMonth;
 			ClientId = clientId;
 			TimeOfCreated = timeOfCreated;
 			Amount = amount;

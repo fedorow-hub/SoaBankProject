@@ -1,4 +1,5 @@
-﻿using ClientBankApp.Infrastructure.Commands;
+﻿using ClientBankApp.Helpers;
+using ClientBankApp.Infrastructure.Commands;
 using ClientBankApp.Models.Account;
 using ClientBankApp.ViewModels.Base;
 using System.Windows;
@@ -41,20 +42,18 @@ namespace ClientBankApp.ViewModels.DialogViewModels
 		private bool CanSaveCommandExecute(object p) => true;
 		private async void OnSaveCommandExecute(object p)
 		{
-			// логика отправки команды на сервер
+			var transaction = new TransactionModel
+			{
+				FromAccountId = _accountFrom.Id,
+				DestinationAccountId = _accountTo.Id,
+				Amount = _amount
+			};
 
-			//var command = new TransactionBetweenAccountCommand
-			//{
-			//	FromAccountId = _accountFrom.Id,
-			//	DestinationAccountId = _accountTo.Id,
-			//	Amount = _amount,
-			//};
+            var message = AcountAction.TransactionMoney(transaction);
 
-			//var message = await _mediator.Send(command);
+            MessageBox.Show(message);
 
-			//MessageBox.Show(message);
-
-			if (p is Window window)
+            if (p is Window window)
 			{
 				window.Close();
 			}

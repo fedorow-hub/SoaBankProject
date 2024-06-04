@@ -194,9 +194,9 @@ namespace ClientBankApp.ViewModels
 
         private void UpdateClients()
         {
-            if (MyHttpClient.GetClients() != null)
+            if (ClientAction.GetClients() != null)
             {
-                Clients = MyHttpClient.GetClients().Clients;
+                Clients = ClientAction.GetClients().Clients;
             }
             else
             {
@@ -206,9 +206,9 @@ namespace ClientBankApp.ViewModels
 
         private void UpdateAccount()
         {
-            if (MyHttpClient.GetClients() != null)
+            if (ClientAction.GetClients() != null)
             {
-                AccountsCurrentClient = MyHttpClient.GetClientAccounsts(_selectedClient.Id).Accounts;
+                AccountsCurrentClient = AcountAction.GetClientAccounsts(_selectedClient.Id).Accounts;
             }
             else
             {
@@ -218,8 +218,6 @@ namespace ClientBankApp.ViewModels
 
         private Bank GetExistBankOrCreate()
         {
-            // документация по работе с клиентом https://learn.microsoft.com/ru-ru/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client
-
             var bank = new Bank
             {
                 Id = Guid.NewGuid(),
@@ -228,7 +226,7 @@ namespace ClientBankApp.ViewModels
                 DateOfCreation = DateTime.Now
             };
 
-            return MyHttpClient.CreateBank(bank);
+            return BankAction.CreateBank(bank);
         }
 
 
@@ -265,6 +263,7 @@ namespace ClientBankApp.ViewModels
         {
             if (SelectedClient is null) return;
 
+            //TODO вынести логику проверки на уровень домена
             foreach (var account in _accountsCurrentClient)
             {
                 if (account.IsExistance)
@@ -273,18 +272,16 @@ namespace ClientBankApp.ViewModels
                     return;
                 }
             }
-
-            // логика команды удаления 
-
-            //var command = new DeleteClientCommand
-            //{
-            //	Id = SelectedClient.Id,
-            //};
-
-            //_mediator.Send(command);
-            //Log.Information($"{Worker} удалил клиента {SelectedClient.Id} {SelectedClient.Lastname} {SelectedClient.Firstname} {SelectedClient.Patronymic}");
-            //MessageBox.Show($"{Worker} удалил клиента {SelectedClient.Id}");
-            UpdateClientList.Invoke();
+            
+            if(ClientAction.DeleteClient(SelectedClient.Id))
+            {
+                MessageBox.Show($"{Worker} удалил клиента {SelectedClient.Lastname}");
+                UpdateClientList.Invoke();
+            }
+            else
+            {
+                MessageBox.Show($"Клиент {SelectedClient.Lastname} не удален");
+            }
         }
         #endregion
 

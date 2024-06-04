@@ -27,7 +27,7 @@ namespace Bank.Application.Accounts.Commands.CreateAccount
 				{
 					case 1://deposit 
 						bank.AddMoneyToCapital(request.Amount);
-						var depositAccount = DepositAccount.CreateDepositAccount(Guid.NewGuid(), request.ClientId, request.AccountTerm, request.Amount, request.CreatedAt);
+						var depositAccount = DepositAccount.CreateDepositAccount(request.Id, request.ClientId, request.AccountTerm, request.Amount, request.CreatedAt);
 						_dbContext.Accounts.Add(depositAccount);
 						depositAccount.AddDomainEvent(new CreateAccountEvent
 						{
@@ -39,7 +39,7 @@ namespace Bank.Application.Accounts.Commands.CreateAccount
 						try
 						{
 							bank.WithdrawalMoneyFromCapital(request.Amount);
-							var creditAccount = CreditAccount.CreateCreditAccount(Guid.NewGuid(), client,
+							var creditAccount = CreditAccount.CreateCreditAccount(request.Id, client,
 								request.AccountTerm, request.Amount, request.CreatedAt);
 							_dbContext.Accounts.Add(creditAccount);
 							creditAccount.AddDomainEvent(new CreateAccountEvent
@@ -55,7 +55,7 @@ namespace Bank.Application.Accounts.Commands.CreateAccount
 						break;
 					case 3://plane
 						bank.AddMoneyToCapital(request.Amount);
-						var planeAccount = PlainAccount.CreatePlaneAccount(Guid.NewGuid(), request.ClientId, request.CreatedAt, request.AccountTerm, request.Amount);
+						var planeAccount = PlainAccount.CreatePlaneAccount(request.Id, request.ClientId, request.CreatedAt, request.AccountTerm, request.Amount);
 						_dbContext.Accounts.Add(planeAccount);
 						planeAccount.AddDomainEvent(new CreateAccountEvent
 						{

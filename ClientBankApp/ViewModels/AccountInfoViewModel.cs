@@ -1,4 +1,5 @@
-﻿using ClientBankApp.Infrastructure.Commands;
+﻿using ClientBankApp.Helpers;
+using ClientBankApp.Infrastructure.Commands;
 using ClientBankApp.Models.Account;
 using ClientBankApp.Models.Client;
 using ClientBankApp.ViewModels.Base;
@@ -13,14 +14,14 @@ namespace ClientBankApp.ViewModels
 		private readonly OpenAccountViewModel _openAccountViewModel;
 
 		#region Свойства зависимости
-		private string[] _accountTypes = { "Рассчетный", "Кредитный", "Депозитный" };
+		private string[] _accountTypes = { "Расчетный", "Кредитный", "Депозитный" };
 		public string[] AccountTypes
 		{
 			get => _accountTypes;
 			set => Set(ref _accountTypes, value);
 		}
 
-		private string _type = "Рассчетный";
+		private string _type = "Расчетный";
 		public string Type
 		{
 			get => _type;
@@ -71,20 +72,20 @@ namespace ClientBankApp.ViewModels
 		private bool CanSaveCommandExecute(object p) => true;
 		private async void OnSaveCommandExecute(object p)
 		{
-			// логика отправки соманды на сервер
+			var account = new Account
+            {
+				Id = Guid.NewGuid(),
+				ClientId = _currentClient.Id,
+                TimeOfCreated = DateTime.Now,
+				AccountTerm = DateTime.Now.AddMonths(AccountTerm),
+				Amount = Convert.ToDecimal(_amount),
+				Type = _type
+			};
 
-			//var command = new CreateAccountCommand
-			//{
-			//	ClientId = _currentClient.Id,
-			//	CreatedAt = DateTime.Now,
-			//	AccountTerm = AccountTerm,
-			//	Amount = Convert.ToDecimal(_amount),
-			//	TypeOfAccount = TypeOfAccount.Parse(_type)
-			//};
+			string message = AcountAction.CreateAccount(account);
 
-			//var message = await _mediator.Send(command);
 
-			//MessageBox.Show(message);
+			MessageBox.Show(message);
 
 			if (p is Window window)
 			{

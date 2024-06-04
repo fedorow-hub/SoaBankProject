@@ -47,9 +47,9 @@ namespace ClientBankApp.ViewModels.DialogViewModels
 
         public TransferToOtherClientsDialogViewModel(Account accountFrom, Client client, TransferToOtherClientsAccountsViewModel viewModel)
         {
-            if (MyHttpClient.GetClients() != null)
+            if (ClientAction.GetClients() != null)
             {
-                _accountsSelectedClient = MyHttpClient.GetClientAccounsts(client.Id).Accounts;
+                _accountsSelectedClient = AcountAction.GetClientAccounsts(client.Id).Accounts;
             }
             else
             {
@@ -75,18 +75,16 @@ namespace ClientBankApp.ViewModels.DialogViewModels
 
         private async void OnSaveCommandExecute(object p)
         {
-            // логика отправки команды на сервер
+            var transaction = new TransactionModel
+            {
+                FromAccountId = AccountFrom.Id,
+                DestinationAccountId = _selectedAccount.Id,
+                Amount = _amount
+            };
 
-            //var command = new TransactionBetweenAccountCommand
-            //{
-            //	FromAccountId = AccountFrom.Id,
-            //	DestinationAccountId = _selectedAccount.Id,
-            //	Amount = _amount,
-            //};
+            var message = AcountAction.TransactionMoney(transaction);
 
-            //var message = await _mediator.Send(command);
-
-            //MessageBox.Show(message);
+            MessageBox.Show(message);
 
             if (p is Window window)
             {

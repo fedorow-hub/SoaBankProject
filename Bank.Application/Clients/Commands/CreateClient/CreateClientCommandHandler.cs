@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bank.Application.Clients.Commands.CreateClient
 {
-	public class CreateClientCommandHandler : IRequestHandler<CreateClientCommand>
+	public class CreateClientCommandHandler : IRequestHandler<CreateClientCommand, int>
 	{
 		private readonly IApplicationDbContext _dbContext;
 
@@ -14,7 +14,7 @@ namespace Bank.Application.Clients.Commands.CreateClient
 			_dbContext = dbContext;
 		}
 
-		public async Task Handle(CreateClientCommand request, CancellationToken cancellationToken)
+		public async Task<int> Handle(CreateClientCommand request, CancellationToken cancellationToken)
 		{
 			var bank = await _dbContext.Bank.FirstOrDefaultAsync(cancellationToken);
 
@@ -34,7 +34,9 @@ namespace Bank.Application.Clients.Commands.CreateClient
 				});
 			}
 
-			await _dbContext.SaveChangesAsync(cancellationToken);
+            var result = _dbContext.SaveChangesAsync(cancellationToken);
+
+            return await result;
 		}
 	}
 }

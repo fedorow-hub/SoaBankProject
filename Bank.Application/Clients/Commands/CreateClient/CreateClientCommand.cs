@@ -2,7 +2,7 @@
 
 namespace Bank.Application.Clients.Commands.CreateClient
 {
-	public record CreateClientCommand : IRequest
+	public record CreateClientCommand : IRequest<int>
 	{
 		public Guid Id { get; init; }
 		public string Firstname { get; init; } = null!;

@@ -62,9 +62,9 @@ namespace ClientBankApp.ViewModels
 
         private void UpdateAccount()
         {
-            if (MyHttpClient.GetClients() != null)
+            if (ClientAction.GetClients() != null)
             {
-                Accounts = MyHttpClient.GetClientAccounsts(_currentClient.Id).Accounts;
+                Accounts = AcountAction.GetClientAccounsts(_currentClient.Id).Accounts;
             }
             else
             {
@@ -108,22 +108,15 @@ namespace ClientBankApp.ViewModels
 
         private async void OnCloseAccountCommandExecute(object p)
         {
-            if (_selectedAccount.Amount > 0)
+            if (_selectedAccount.Amount > 0) //TODO перенести логику проверки в доменную модель
             {
                 MessageBox.Show("На счету имеются денежные средства, перед закрытием счета их необходимо снять или перевести на другой счет");
             }
             else
             {
-                // логика команды на сервер
+                string message = AcountAction.DeleteAccount(_selectedAccount.Id);
 
-                //var command = new CloseAccountCommand
-                //{
-                //	Id = _selectedAccount.Id
-                //};
-
-                //var message = await _mediator.Send(command);
-
-                //MessageBox.Show(message);
+                MessageBox.Show(message);
             }
 
             UpdateAccountList.Invoke();

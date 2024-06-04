@@ -44,7 +44,7 @@
 
 
                     </StackPanel>
-                    <StackPanel DockPanel.Dock="Bottom">
+                    <!--<StackPanel DockPanel.Dock="Bottom">
                         <StatusBar>
                             <TextBlock Text="Курс валют на" />
                             <TextBlock Text="{Binding Date}"/>
@@ -57,7 +57,7 @@
                             <TextBlock Text="Евро" Margin="0,0,100,0"/>
                             <TextBlock Text="{Binding EuroCurrentRate}" FontWeight="Bold" />
                         </StatusBar>
-                    </StackPanel>
+                    </StackPanel>-->
                 </DockPanel>
             </GroupBox>
             <GroupBox Grid.Column="1" Header="Клиенты" Margin="5,0">

@@ -25,7 +25,7 @@
 		/// <param name="termOfMonth"></param>
 		/// <param name="amount"></param>
 		/// <returns></returns>
-		public static PlainAccount CreatePlaneAccount(Guid id, Guid clientId, DateTime timeOfCreated, byte termOfMonth = byte.MaxValue, decimal amount = 0)
+		public static PlainAccount CreatePlaneAccount(Guid id, Guid clientId, DateTime timeOfCreated, DateTime termOfMonth, decimal amount = 0)
 		{
 			var newAccount = new PlainAccount(id, clientId, termOfMonth, timeOfCreated, amount);
 			return newAccount;

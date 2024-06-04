@@ -62,9 +62,9 @@ namespace ClientBankApp.ViewModels
 
         private void UpdateAccount()
         {
-            if (MyHttpClient.GetClients() != null)
+            if (ClientAction.GetClients() != null)
             {
-                Accounts = MyHttpClient.GetClientAccounsts(_currentClient.Id).Accounts;
+                Accounts = AcountAction.GetClientAccounsts(_currentClient.Id).Accounts;
             }
             else
             {
